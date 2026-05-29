@@ -1,0 +1,70 @@
+/* GLOBAL STYLES */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+body { background-color: #070a13; color: #ffffff; padding-top: 75px; overflow-x: hidden; transition: 0.3s; }
+
+/* NAVBAR */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; height: 60px; background-color: #0f1322; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid #1a233a; z-index: 999; }
+.menu-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+.logo { font-weight: bold; font-size: 20px; letter-spacing: 1px; }
+.logo span { color: #ff007f; }
+
+/* SIDE DRAWER */
+.side-drawer { position: fixed; top: 0; left: -260px; width: 260px; height: 100%; background-color: #0f1322; box-shadow: 4px 0 20px rgba(0, 0, 0, 0.7); transition: 0.3s ease-in-out; padding: 80px 20px 20px 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+.side-drawer.open { left: 0; }
+.side-drawer a { color: #a0aec0; text-decoration: none; font-size: 16px; font-weight: 500; padding: 12px 15px; border-radius: 8px; display: block; transition: 0.2s; }
+.side-drawer a:hover, .side-drawer a.active { color: white; background-color: #ff007f; }
+
+/* CONTAINER & GRID */
+.container { padding: 10px 15px; max-width: 1000px; margin: 0 auto; }
+.section-title { font-size: 18px; margin-bottom: 20px; border-left: 4px solid #ff007f; padding-left: 10px; }
+
+.free-section-link { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ff007f 0%, #ff5e62 100%); color: white; text-decoration: none; font-weight: bold; font-size: 13px; padding: 15px; border-radius: 12px; margin-bottom: 25px; text-transform: uppercase; text-align: center; box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4); }
+.wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.wallpaper-card { background-color: #0f1322; border: 1px solid #1a233a; border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; }
+.wallpaper-card img { width: 100%; height: 260px; object-fit: cover; display: block; }
+
+.badge { position: absolute; top: 10px; left: 10px; padding: 4px 8px; font-size: 10px; font-weight: bold; border-radius: 4px; }
+.badge.premium { background-color: #ff007f; color: white; }
+.badge.free { background-color: #00ff88; color: #0b0f19; }
+
+/* FULLSCREEN PREVIEW */
+.preview-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000000; display: none; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 50px; z-index: 2000; }
+.preview-img-full { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2001; }
+.buy-now-btn { width: 85%; max-width: 340px; background: linear-gradient(135deg, #00ff88 0%, #00b4db 100%); color: #0b0f19; padding: 16px; font-size: 15px; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 255, 136, 0.6); text-transform: uppercase; z-index: 2002; letter-spacing: 0.5px; }
+
+/* SETTINGS & CYBER PRIVACY CARDS */
+.settings-card { background-color: #0f1322; border: 1px solid #1a233a; border-radius: 16px; padding: 22px; margin-bottom: 18px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.card-icon { font-size: 26px; margin-bottom: 12px; }
+.settings-card h3 { font-size: 16px; color: #ffffff; margin-bottom: 8px; }
+.card-desc { font-size: 13px; color: #a0aec0; margin-bottom: 15px; }
+
+.settings-input { width: 100%; padding: 14px; background-color: #070a13; border: 1px solid #1a233a; border-radius: 10px; color: white; margin-bottom: 15px; outline: none; }
+.settings-btn { width: 100%; padding: 14px; font-size: 14px; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; text-transform: uppercase; }
+.settings-btn.primary { background-color: #ff007f; color: white; }
+.settings-btn.accent { background-color: #00ff88; color: #0b0f19; }
+
+.theme-toggle-group { display: flex; gap: 10px; }
+.theme-btn { flex: 1; padding: 14px; background-color: #070a13; border: 1px solid #1a233a; color: #a0aec0; border-radius: 10px; cursor: pointer; font-weight: bold; }
+.theme-btn.active { background-color: #1a233a; color: white; border-color: #ff007f; }
+
+/* ADVANCED CYBER STYLES */
+.security-banner { background: linear-gradient(135deg, #111a33 0%, #080f22 100%); border: 1px solid #1e2f5c; padding: 25px; border-radius: 16px; text-align: center; margin-bottom: 25px; }
+.security-banner h2 { font-size: 18px; color: #00ff88; letter-spacing: 2px; margin-top: 10px; }
+.security-banner p { font-size: 12px; color: #a0aec0; }
+.shield-animated { font-size: 36px; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.9; } }
+
+.privacy-card { border-left: 4px solid #00ff88; }
+.privacy-text { text-align: left; font-size: 13px; color: #cbd5e0; line-height: 1.8; }
+.privacy-text p { margin-bottom: 12px; }
+.privacy-text strong { color: #00ff88; display: block; margin-bottom: 4px; }
+.privacy-text ul { padding-left: 20px; color: #cbd5e0; margin-bottom: 12px; }
+.privacy-text li { margin-bottom: 6px; }
+
+.security-status-advanced { margin-top: 15px; padding-top: 15px; border-top: 1px solid #1a233a; font-size: 11px; color: #00ff88; display: flex; align-items: center; gap: 8px; font-weight: bold; }
+.status-indicator-green { width: 8px; height: 8px; background-color: #00ff88; border-radius: 50%; box-shadow: 0 0 8px #00ff88; }
+
+/* MODAL & PAYMENT inputs */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 3000; }
+.modal-content { background-color: #0f1322; border: 1px solid #1a233a; border-radius: 16px; padding: 25px; max-width: 400px; width: 100%; text-align: center; }
+.input-field { width: 100%; padding: 14px; background-color: #070a13; border: 1px solid #1a233a; border-radius: 10px; color: white; margin-top: 12px; outline: none; }

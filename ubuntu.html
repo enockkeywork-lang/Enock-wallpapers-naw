@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="rn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Enock Wallpapers | Iz'Ubuntu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="logo">ENOCK <span>WALLPAPERS</span></div>
+        <div style="width: 26px;"></div>
+    </header>
+
+    <div id="sideDrawer" class="side-drawer">
+        <a href="index.html">Zigurishwa (Premium)</a>
+        <a href="ubuntu.html" class="active">Iz'Ubuntu (Free)</a>
+        <a href="parametres.html">Paramètres</a>
+        <a href="ubwirinzi.html">Ubwirinzi</a>
+    </div>
+
+    <main class="container">
+        <h2 class="section-title">Wallpapers Z'ubuntu Zikunzwe</h2>
+        
+        <div class="wallpaper-grid">
+            <div class="wallpaper-card" onclick="funguraPreview('ifoto8.jpg')">
+                <div class="badge free">FREE</div>
+                <img src="ifoto8.jpg" alt="Wallpaper">
+            </div>
+            <div class="wallpaper-card" onclick="funguraPreview('ifoto6.jpg')">
+                <div class="badge free">FREE</div>
+                <img src="ifoto6.jpg" alt="Wallpaper">
+            </div>
+            <div class="wallpaper-card" onclick="funguraPreview('ifoto7.jpg')">
+                <div class="badge free">FREE</div>
+                <img src="ifoto7.jpg" alt="Wallpaper">
+            </div>
+            <div class="wallpaper-card" onclick="funguraPreview('ifoto5.jpg')">
+                <div class="badge free">FREE</div>
+                <img src="ifoto5.jpg" alt="Wallpaper">
+            </div>
+        </div>
+    </main>
+
+    <div id="previewModal" class="preview-modal">
+        <img id="previewImage" class="preview-img-full" src="" alt="Preview">
+        <button class="buy-now-btn" style="background: linear-gradient(135deg, #ff007f 0%, #ff5e62 100%); color: white;" onclick="manuraIfoto()">
+            ⬇️ MANURA IYI WALLPAPER (FREE)
+        </button>
+    </div>
+
+    <script>
+        var ifotoIrimoKurebwa = "";
+        function toggleMenu() { document.getElementById("sideDrawer").classList.toggle("open"); }
+        function funguraPreview(link) {
+            ifotoIrimoKurebwa = link;
+            document.getElementById("previewImage").src = link;
+            document.getElementById("previewModal").style.display = "flex";
+            window.history.pushState({previewOpen: true}, "");
+        }
+        function fungaPreview() { document.getElementById("previewModal").style.display = "none"; }
+        window.addEventListener('popstate', function () { fungaPreview(); });
+        function manuraIfoto() {
+            var a = document.createElement('a'); a.href = ifotoIrimoKurebwa; a.download = ifotoIrimoKurebwa; a.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="rn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Enock Wallpapers | Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="logo">ENOCK <span>WALLPAPERS</span></div>
+        <div style="width: 26px;"></div>
+    </header>
+
+    <div id="sideDrawer" class="side-drawer">
+        <a href="index.html" class="active">Zigurishwa (Premium)</a>
+        <a href="ubuntu.html">Iz'Ubuntu (Free)</a>
+        <a href="parametres.html">Paramètres</a>
+        <a href="ubwirinzi.html">Ubwirinzi</a>
+    </div>
+
+    <main class="container">
+        <a href="ubuntu.html" class="free-section-link">
+            🎁 IZ'UBUNTU (FREE) WALLPAPERS HERE
+        </a>
+
+        <h2 class="section-title">Wallpapers Zigurishwa</h2>
+        
+        <div class="wallpaper-grid">
+            <div class="wallpaper-card" onclick="funguraPreviewPremium('ifoto1.jpg', 'Premium Wallpaper 1', '2,000 FBU')">
+                <div class="badge premium">PREMIUM</div>
+                <img src="ifoto1.jpg" alt="Wallpaper">
+            </div>
+            <div class="wallpaper-card" onclick="funguraPreviewPremium('ifoto50.jpg', 'Premium Wallpaper 50', '2,500 FBU')">
+                <div class="badge premium">PREMIUM</div>
+                <img src="ifoto50.jpg" alt="Wallpaper">
+            </div>
+            <div class="wallpaper-card" onclick="funguraPreviewPremium('ifoto40.jpg', 'Premium Wallpaper 40', '2,000 FBU')">
+                <div class="badge premium">PREMIUM</div>
+                <img src="ifoto40.jpg" alt="Wallpaper">
+            </div>
+            <div class="wallpaper-card" onclick="funguraPreviewPremium('ifoto10.jpg', 'Premium Wallpaper 10', '2,000 FBU')">
+                <div class="badge premium">PREMIUM</div>
+                <img src="ifoto10.jpg" alt="Wallpaper">
+            </div>
+        </div>
+    </main>
+
+    <div id="previewModal" class="preview-modal">
+        <img id="previewImage" class="preview-img-full" src="" alt="Preview">
+        <button class="buy-now-btn" onclick="funguraKwishura()">
+            💰 GURA IYI WALLPAPER (<span id="previewPriceText">0 FBU</span>)
+        </button>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h2 style="color: #e74c3c; margin-bottom: 5px;">🔴 LUMICASH BURUNDI</h2>
+            <h3 id="modalName" style="color: white; margin-bottom: 5px;">Izina</h3>
+            <p id="modalPrice" style="color: #00ff88; font-weight: bold; font-size: 18px; margin-bottom: 15px;">0 FBU</p>
+            
+            <div style="background: #070a13; padding: 12px; border-radius: 8px; text-align: left; font-size: 13px; border: 1px solid #1a233a; color: white; line-height: 1.6;">
+                <p style="color: #ff007f; font-weight: bold; margin-bottom: 4px;">Amabwiriza:</p>
+                <p>1. Kanda <strong>*150#</strong></p>
+                <p>2. Hitamo <strong>Rungika Amafaranga</strong></p>
+                <p>3. Numero: <strong style="color: #00ff88;">64583963</strong></p>
+                <p>4. Izina: <strong style="color: #00b4db;">INGABIRE VIOLETTE</strong></p>
+            </div>
+            
+            <input type="text" id="txCode" class="input-field" placeholder="Shyiramo Kode ya SMS (TxID)">
+            <button class="settings-btn accent" style="margin-top: 15px;" onclick="emezaUbwishu()">Emeza & Manura ⬇️</button>
+            <button class="settings-btn" style="margin-top: 8px; background: transparent; border: 1px solid #555; color: #aaa;" onclick="fungaKwishura()">Subika</button>
+        </div>
+    </div>
+
+    <script>
+        var ifotoIriKugurwa = ""; var izinaRyIfoto = ""; var igiciroKyIfoto = "";
+        function toggleMenu() { document.getElementById("sideDrawer").classList.toggle("open"); }
+        function funguraPreviewPremium(link, izina, igiciro) {
+            ifotoIriKugurwa = link; izinaRyIfoto = izina; igiciroKyIfoto = igiciro;
+            document.getElementById("previewImage").src = link;
+            document.getElementById("previewPriceText").innerText = igiciro;
+            document.getElementById("previewModal").style.display = "flex";
+            window.history.pushState({previewOpen: true}, "");
+        }
+        function fungaPreview() { document.getElementById("previewModal").style.display = "none"; }
+        function funguraKwishura() {
+            fungaPreview();
+            document.getElementById("modalName").innerText = izinaRyIfoto;
+            document.getElementById("modalPrice").innerText = igiciroKyIfoto;
+            document.getElementById("paymentModal").style.display = "flex";
+            window.history.pushState({paymentOpen: true}, "");
+        }
+        function fungaKwishura() { document.getElementById("paymentModal").style.display = "none"; }
+        
+        window.addEventListener('popstate', function () { fungaPreview(); fungaKwishura(); });
+
+        function emezaUbwishu() {
+            var code = document.getElementById("txCode").value;
+            if(code.trim() === "") { alert("Nyamuneka winjize kode ya SMS!"); } 
+            else {
+                alert("Ubwishyu bwemewe! Ifoto igiye kumanuka.");
+                var a = document.createElement('a'); a.href = ifotoIriKugurwa; a.download = ifotoIriKugurwa; a.click();
+                fungaKwishura();
+            }
+        }
+    </script>
+</body>
+</html>

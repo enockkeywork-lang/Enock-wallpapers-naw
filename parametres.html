@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="rn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Enock Wallpapers | Paramètres</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="logo">ENOCK <span>WALLPAPERS</span></div>
+        <div style="width: 26px;"></div>
+    </header>
+
+    <div id="sideDrawer" class="side-drawer">
+        <a href="index.html">Zigurishwa (Premium)</a>
+        <a href="ubuntu.html">Iz'Ubuntu (Free)</a>
+        <a href="parametres.html" class="active">Paramètres</a>
+        <a href="ubwirinzi.html">Ubwirinzi</a>
+    </div>
+
+    <main class="container">
+        <h2 class="section-title">Igenamiterere rya App (Settings)</h2>
+
+        <div class="settings-card">
+            <div class="card-icon">👤</div>
+            <h3>Kwinjiza Imeri (Gmail Account)</h3>
+            <p class="card-desc">Yinjize hano konti yawe kugira ngo ujye unyuzwamo amakuru y'amahirwe macye.</p>
+            <input type="email" id="userEmail" class="settings-input" placeholder="itangize@gmail.com">
+            <button class="settings-btn primary" onclick="emezaEmail()">Emeza Imeri</button>
+        </div>
+
+        <div class="settings-card">
+            <div class="card-icon">🎨</div>
+            <h3>Isura ya App (App Theme)</h3>
+            <p class="card-desc">Hitamo isura ya screen yawe hagati y'umwijima n'umucyo.</p>
+            <div class="theme-toggle-group">
+                <button class="theme-btn active" id="btnDark" onclick="hinduraTheme('dark')">🌙 Dark Mode</button>
+                <button class="theme-btn" id="btnLight" onclick="hinduraTheme('light')">☀️ Light Mode</button>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <div class="card-icon">⭐</div>
+            <h3>Kuyikunda & Feedback</h3>
+            <p class="card-desc">Andika hano ijambo ryiza cyangwa feedback niba ukunda uru rubuga rwa ENOCK.</p>
+            <textarea id="feedbackText" class="settings-input" rows="3" placeholder="Andika hano icyo uyikundira..."></textarea>
+            <button class="settings-btn accent" onclick="oherezaFeedback()">Ohereza Feedback</button>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() { document.getElementById("sideDrawer").classList.toggle("open"); }
+        function emezaEmail() {
+            var email = document.getElementById("userEmail").value;
+            if(email.trim() === "" || !email.includes("@")) { alert("Nyamuneka winjize Gmail itunganye!"); }
+            else { alert("Konti ya Gmail " + email + " yemezwemo neza!"); }
+        }
+        function hinduraTheme(u) {
+            if(u === 'light') {
+                document.body.style.backgroundColor = "#f4f6f9"; document.body.style.color = "#111726";
+            } else {
+                document.body.style.backgroundColor = "#070a13"; document.body.style.color = "#ffffff";
+            }
+        }
+        function oherezaFeedback() { alert("Murakoze cyane ku gitekerezo utanze!"); document.getElementById("feedbackText").value = ""; }
+    </script>
+</body>
+</html>
